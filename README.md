@@ -1,42 +1,23 @@
-# Computer School for All — Starter Website
+# MichaelTech Academy Pro Starter
 
-A premium static website starter for a computer learning platform.
+This package is a professional starter for **MichaelTech Academy**, a computer learning platform for students who want to learn from scratch, pass exams, and earn a **Certificate of Completion**.
 
-## Included pages
-- `index.html` — marketing landing page
-- `student.html` — simple student portal demo with lesson progress and exam
-- `certificate.html` — printable certificate demo
-- `css/style.css` — full site styling
-- `js/main.js` — mobile navigation
-- `js/student.js` — lesson tracking, quiz logic, certificate unlock flow
+The design direction is inspired by the clear structure of riseeritrea.com — especially the strong hero, progress-based learning journey, exams, and certificates.
 
-## Best use case
-This is a strong starter for:
-- computer school
-- digital literacy academy
-- beginner IT training
-- community learning center
-- migrant and youth digital skills programs
+## Included
+- Premium landing page
+- English + German translation structure
+- Student registration and login UI
+- Student dashboard
+- Courses, lessons, and exam pages
+- Premium gold elegant certificate page
+- Admin login and admin dashboard UI
+- Node/Express backend starter
+- PostgreSQL schema
+- Deployment guide
 
-## How to use
-1. Upload all files to your hosting or GitHub Pages / Netlify.
-2. Replace the school name with your final brand.
-3. Replace pricing, text, and contact details.
-4. Add your real student login later.
-5. Connect a backend later for real accounts, saved progress, exams, and verified certificates.
+## Important
+This is a strong Pro starter, not a finished SaaS platform yet. The frontend is working and ready to customize. The backend includes clean starter routes and structure, but you still need to connect frontend forms to the API and replace demo data with database queries.
 
-## Best next upgrade
-For a real production platform, add:
-- login and registration
-- admin dashboard
-- course management
-- database for users and certificates
-- PDF certificate generation
-- payment system
-- multilingual support (English / German / Tigrinya)
-
-## Domain ideas
-- computerschoolforall.com
-- learncomputerfromscratch.com
-- your local brand + .ch
-
+## Admin email
+`info@michaeltech.ch`
