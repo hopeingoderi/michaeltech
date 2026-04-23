@@ -1,1 +1,80 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Student Registration | MichaelTech Academy</title><link rel="stylesheet" href="assets/css/styles.css" /></head><body class="auth-page"><main class="auth-shell"><section class="auth-panel auth-brand"><a href="index.html" class="brand inline"><span class="brand-mark">M</span><span><strong>MichaelTech Academy</strong><small>Student Registration</small></span></a><h1>Start your learning journey.</h1><p>Create a student account to access lessons, track progress, take exams, and earn your certificate.</p><ul class="check-list light"><li>English and German learning paths</li><li>Three practical course levels</li><li>Certificate of Completion</li></ul></section><section class="auth-panel"><form class="form-card" id="registerForm"><h2>Create Account</h2><label>Full name<input type="text" name="fullName" placeholder="Michael Afewerki" required /></label><label>Email<input type="email" name="email" placeholder="student@example.com" required /></label><label>Password<input type="password" name="password" placeholder="********" required /></label><label>Phone number<input type="tel" name="phone" placeholder="+41 ..." /></label><label>Country<input type="text" name="country" placeholder="Switzerland" /></label><label>Preferred language<select name="language"><option>English</option><option>German</option></select></label><button class="btn btn-gold" type="submit">Create student account</button><p class="form-note">Frontend demo form. Connect this to the backend API in production.</p><p class="small-link">Already have an account? <a href="student-login.html">Login here</a></p></form></section></main><script src="assets/js/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Registration | MichaelTech Academy</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-shell">
+      <section class="auth-panel auth-brand">
+        <a href="index.html" class="brand inline"
+          ><span class="brand-mark">M</span
+          ><span
+            ><strong>MichaelTech Academy</strong
+            ><small>Student Registration</small></span
+          ></a
+        >
+        <h1>Start your learning journey.</h1>
+        <p>
+          Create a student account to access lessons, track progress, take
+          exams, and earn your certificate.
+        </p>
+        <ul class="check-list light">
+          <li>English and German learning paths</li>
+          <li>Three practical course levels</li>
+          <li>Certificate of Completion</li>
+        </ul>
+      </section>
+      <section class="auth-panel">
+        <form class="form-card" id="registerForm">
+          <h2>Create Account</h2>
+          <label
+            >Full name<input
+              type="text"
+              name="fullName"
+              placeholder="Michael Afewerki"
+              required /></label
+          ><label
+            >Email<input
+              type="email"
+              name="email"
+              placeholder="student@example.com"
+              required /></label
+          ><label
+            >Password<input
+              type="password"
+              name="password"
+              placeholder="********"
+              required /></label
+          ><label
+            >Phone number<input
+              type="tel"
+              name="phone"
+              placeholder="+41 ..." /></label
+          ><label
+            >Country<input
+              type="text"
+              name="country"
+              placeholder="Switzerland" /></label
+          ><label
+            >Preferred language<select name="language">
+              <option>English</option>
+              <option>German</option>
+            </select></label
+          ><button class="btn btn-gold" type="submit">
+            Create student account
+          </button>
+          <p class="form-note">
+            Frontend demo form. Connect this to the backend API in production.
+          </p>
+          <p class="small-link">
+            Already have an account? <a href="student-login.html">Login here</a>
+          </p>
+        </form>
+      </section>
+    </main>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
