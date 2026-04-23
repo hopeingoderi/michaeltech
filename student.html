@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portal | Computer School for All</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="portal-body">
+  <header class="site-header portal-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">CS</span>
+        <span>
+          <strong>Computer School for All</strong>
+          <small>Student Portal</small>
+        </span>
+      </a>
+      <nav class="site-nav no-mobile-hide">
+        <a href="index.html">Home</a>
+        <a href="certificate.html">Certificate Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container portal-grid">
+      <aside class="portal-sidebar glass">
+        <h2>Your Journey</h2>
+        <p>Demo student area with lesson tracking and a simple exam.</p>
+        <div class="progress-row">
+          <label>Overall Progress</label>
+          <div class="progress"><span id="overallProgress" style="width: 0%"></span></div>
+        </div>
+        <p id="progressText">0% completed</p>
+        <button class="btn btn-outline full-width" id="resetProgress">Reset Progress</button>
+      </aside>
+
+      <section class="portal-main">
+        <div class="glass portal-card">
+          <h1>Level 1 — Computer Foundation</h1>
+          <p>Mark lessons as complete, then take the exam. Passing unlocks the certificate.</p>
+          <div class="lesson-list" id="lessonList"></div>
+        </div>
+
+        <div class="glass portal-card">
+          <h2>Final Exam</h2>
+          <form id="quizForm" class="quiz-form">
+            <div class="quiz-item">
+              <p>1. Which device is mainly used to move the pointer on the screen?</p>
+              <label><input type="radio" name="q1" value="a"> Printer</label>
+              <label><input type="radio" name="q1" value="b"> Mouse</label>
+              <label><input type="radio" name="q1" value="c"> Speaker</label>
+            </div>
+            <div class="quiz-item">
+              <p>2. Which program is commonly used to write documents?</p>
+              <label><input type="radio" name="q2" value="a"> Microsoft Word</label>
+              <label><input type="radio" name="q2" value="b"> Calculator</label>
+              <label><input type="radio" name="q2" value="c"> Camera</label>
+            </div>
+            <div class="quiz-item">
+              <p>3. What is the safest action when you see a suspicious email link?</p>
+              <label><input type="radio" name="q3" value="a"> Click immediately</label>
+              <label><input type="radio" name="q3" value="b"> Share with everyone</label>
+              <label><input type="radio" name="q3" value="c"> Avoid clicking and verify first</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Exam</button>
+          </form>
+          <div id="quizResult" class="quiz-result"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/student.js"></script>
+</body>
+</html>

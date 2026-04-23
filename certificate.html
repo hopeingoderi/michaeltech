@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Demo | Computer School for All</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="certificate-page-bg">
+  <main class="section certificate-page-wrap">
+    <div class="container">
+      <div class="certificate-toolbar">
+        <a href="index.html" class="btn btn-outline">Back Home</a>
+        <button onclick="window.print()" class="btn btn-primary">Print / Save PDF</button>
+      </div>
+      <section class="certificate-full">
+        <p class="cert-top">Computer School for All</p>
+        <p class="cert-small">Certificate of Completion</p>
+        <h1 id="certStudentName">Student Name</h1>
+        <p>has successfully completed</p>
+        <h2 id="certCourseName">Computer Foundation Level</h2>
+        <p>and demonstrated practical learning, discipline, and digital confidence.</p>
+        <div class="cert-meta">
+          <div>
+            <span>Date</span>
+            <strong id="certDate"></strong>
+          </div>
+          <div>
+            <span>Status</span>
+            <strong>Verified</strong>
+          </div>
+        </div>
+        <div class="cert-signatures">
+          <div>
+            <span class="signature-line"></span>
+            <p>Instructor Signature</p>
+          </div>
+          <div>
+            <span class="signature-line"></span>
+            <p>Program Director</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const dateEl = document.getElementById('certDate');
+    const studentEl = document.getElementById('certStudentName');
+    const courseEl = document.getElementById('certCourseName');
+    const savedName = localStorage.getItem('studentName') || 'Student Name';
+    const savedCourse = localStorage.getItem('studentCourse') || 'Computer Foundation Level';
+    studentEl.textContent = savedName;
+    courseEl.textContent = savedCourse;
+    dateEl.textContent = new Date().toLocaleDateString();
+  </script>
+</body>
+</html>
