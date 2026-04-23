@@ -1,7 +1,107 @@
-CREATE TABLE IF NOT EXISTS students (id SERIAL PRIMARY KEY,full_name VARCHAR(150) NOT NULL,email VARCHAR(180) NOT NULL UNIQUE,password_hash TEXT NOT NULL,phone VARCHAR(40),country VARCHAR(120),preferred_language VARCHAR(20) DEFAULT 'en',created_at TIMESTAMP DEFAULT NOW());
-CREATE TABLE IF NOT EXISTS courses (id SERIAL PRIMARY KEY,title_en VARCHAR(180) NOT NULL,title_de VARCHAR(180) NOT NULL,description_en TEXT,description_de TEXT,level_number INT NOT NULL UNIQUE);
-CREATE TABLE IF NOT EXISTS lessons (id SERIAL PRIMARY KEY,course_id INT REFERENCES courses(id) ON DELETE CASCADE,title_en VARCHAR(180) NOT NULL,title_de VARCHAR(180) NOT NULL,content_en TEXT,content_de TEXT,lesson_index INT NOT NULL);
-CREATE TABLE IF NOT EXISTS enrollments (id SERIAL PRIMARY KEY,student_id INT REFERENCES students(id) ON DELETE CASCADE,course_id INT REFERENCES courses(id) ON DELETE CASCADE,status VARCHAR(30) DEFAULT 'active',progress_percent INT DEFAULT 0,created_at TIMESTAMP DEFAULT NOW(),UNIQUE(student_id, course_id));
-CREATE TABLE IF NOT EXISTS exam_attempts (id SERIAL PRIMARY KEY,student_id INT REFERENCES students(id) ON DELETE CASCADE,course_id INT REFERENCES courses(id) ON DELETE CASCADE,score INT NOT NULL,passed BOOLEAN DEFAULT FALSE,attempted_at TIMESTAMP DEFAULT NOW());
-CREATE TABLE IF NOT EXISTS certificates (id SERIAL PRIMARY KEY,student_id INT REFERENCES students(id) ON DELETE CASCADE,course_id INT REFERENCES courses(id) ON DELETE CASCADE,certificate_code VARCHAR(60) NOT NULL UNIQUE,issued_at TIMESTAMP DEFAULT NOW());
-INSERT INTO courses (title_en,title_de,description_en,description_de,level_number) VALUES ('Level 1: Computer Basics','Stufe 1: Computer Grundlagen','Computer basics for complete beginners.','Computer-Grundlagen für absolute Anfänger.',1),('Level 2: Office & Internet','Stufe 2: Office & Internet','Email, office tools, and internet skills.','E-Mail, Office-Tools und Internetfähigkeiten.',2),('Level 3: Job & Professional Skills','Stufe 3: Berufliche Kompetenzen','Professional digital skills for work readiness.','Berufliche digitale Kompetenzen für den Arbeitsalltag.',3) ON CONFLICT (level_number) DO NOTHING;
+-- =========================
+-- STUDENTS
+-- =========================
+CREATE TABLE IF NOT EXISTS students (
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR(150) NOT NULL,
+  email VARCHAR(180) NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  phone VARCHAR(40),
+  country VARCHAR(120),
+  preferred_language VARCHAR(20) DEFAULT 'en',
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- =========================
+-- COURSES
+-- =========================
+CREATE TABLE IF NOT EXISTS courses (
+  id SERIAL PRIMARY KEY,
+  title_en VARCHAR(180) NOT NULL,
+  title_de VARCHAR(180) NOT NULL,
+  description_en TEXT,
+  description_de TEXT,
+  level_number INT NOT NULL UNIQUE
+);
+
+-- =========================
+-- LESSONS
+-- =========================
+CREATE TABLE IF NOT EXISTS lessons (
+  id SERIAL PRIMARY KEY,
+  course_id INT REFERENCES courses(id) ON DELETE CASCADE,
+  title_en VARCHAR(180) NOT NULL,
+  title_de VARCHAR(180) NOT NULL,
+  content_en TEXT,
+  content_de TEXT,
+  lesson_index INT NOT NULL
+);
+
+-- =========================
+-- ENROLLMENTS
+-- =========================
+CREATE TABLE IF NOT EXISTS enrollments (
+  id SERIAL PRIMARY KEY,
+  student_id INT REFERENCES students(id) ON DELETE CASCADE,
+  course_id INT REFERENCES courses(id) ON DELETE CASCADE,
+  status VARCHAR(30) DEFAULT 'active',
+  progress_percent INT DEFAULT 0,
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE (student_id, course_id)
+);
+
+-- =========================
+-- EXAM ATTEMPTS
+-- =========================
+CREATE TABLE IF NOT EXISTS exam_attempts (
+  id SERIAL PRIMARY KEY,
+  student_id INT REFERENCES students(id) ON DELETE CASCADE,
+  course_id INT REFERENCES courses(id) ON DELETE CASCADE,
+  score INT NOT NULL,
+  passed BOOLEAN DEFAULT FALSE,
+  attempted_at TIMESTAMP DEFAULT NOW()
+);
+
+-- =========================
+-- CERTIFICATES
+-- =========================
+CREATE TABLE IF NOT EXISTS certificates (
+  id SERIAL PRIMARY KEY,
+  student_id INT REFERENCES students(id) ON DELETE CASCADE,
+  course_id INT REFERENCES courses(id) ON DELETE CASCADE,
+  certificate_code VARCHAR(60) NOT NULL UNIQUE,
+  issued_at TIMESTAMP DEFAULT NOW()
+);
+
+-- =========================
+-- INITIAL COURSES DATA
+-- =========================
+INSERT INTO courses (
+  title_en,
+  title_de,
+  description_en,
+  description_de,
+  level_number
+) VALUES
+  (
+    'Level 1: Computer Basics',
+    'Stufe 1: Computer Grundlagen',
+    'Computer basics for complete beginners.',
+    'Computer-Grundlagen für absolute Anfänger.',
+    1
+  ),
+  (
+    'Level 2: Office & Internet',
+    'Stufe 2: Office & Internet',
+    'Email, office tools, and internet skills.',
+    'E-Mail, Office-Tools und Internetfähigkeiten.',
+    2
+  ),
+  (
+    'Level 3: Job & Professional Skills',
+    'Stufe 3: Berufliche Kompetenzen',
+    'Professional digital skills for work readiness.',
+    'Berufliche digitale Kompetenzen für den Arbeitsalltag.',
+    3
+  )
+ON CONFLICT (level_number) DO NOTHING;
